@@ -1,0 +1,10 @@
+Title: Flatemate Bill
+
+Description: An app that divides the bill between flatmates depending 
+on the no of days they spend in the flat. It also generates a PDF report and 
+link to view the bill.
+
+Objects:
+    Bill -> amount, period
+    Flatmate-> name, days_in_house, pays(bill Bill)
+    PdfReport-> filename, generate(Flatmate1, Flatmate2, bill)
