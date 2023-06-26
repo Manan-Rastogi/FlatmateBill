@@ -1,2 +1,3 @@
 flatmate
 *.pdf
+.env

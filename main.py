@@ -1,5 +1,10 @@
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
+from dotenv import load_dotenv
+from filestack import Security, Client, Filelink
+import os
+
+load_dotenv()
 
 class Flatmate:
     """
@@ -62,6 +67,13 @@ class PdfReport:
 
 
         c.save()
+
+
+        # Filestack
+        client = Client(os.environ.get("API_KEY"))
+        filelink = client.upload(filepath=filename)
+
+        print(filelink.url)
         
 
 
