@@ -65,13 +65,27 @@ class PdfReport:
         
 
 
+if __name__ == "__main__" :
+    
+    amount = float(input("Enter the Total bill amount: "))
+    period = input("Enter the Period of the bill (eg March 2023): ")
+    bill = Bill(amount, period)
 
-bill = Bill(amount=20000, period="March 2023")
-virat = Flatmate(name="Virat Kohli", days_in_house=21)
-rohit = Flatmate(name="Rohit Sharma", days_in_house=25)
+    
+    
 
-bills = bill.generateIndividualBill(flatname1= virat, flatname2= rohit)
+    name1 = input("Enter name of 1st Flatmate: ")
+    days_in_house1 = int(input("Enter no of days for {}: ".format(name1)))
+    flatmate1 = Flatmate(name1, days_in_house1)
 
-pdf = PdfReport()
+    name2 = input("Enter name of 2nd Flatmate: ")
+    days_in_house2 = int(input("Enter no of days for {}: ".format(name2)))
+    flatmate2 = Flatmate(name2, days_in_house2)
 
-pdf.generate(flatname1= virat, flatname2=rohit, bills=bills, bill=bill)
+    bills = bill.generateIndividualBill(flatname1= flatmate1, flatname2= flatmate2)
+
+    print(bills)
+   
+    pdf = PdfReport()
+
+    pdf.generate(flatname1= flatmate1, flatname2=flatmate2, bills=bills, bill=bill)
