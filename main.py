@@ -65,9 +65,7 @@ class PdfReport:
         c.drawString(100, 650, "Total Bill: " + str(format(bill.amount, '.2f')))
         c.drawString(100, 630, "Payable: "+ str(format(bills[flatname1.name] + bills[flatname2.name], '.2f')))
 
-
         c.save()
-
 
         # Filestack
         client = Client(os.environ.get("API_KEY"))
@@ -78,13 +76,10 @@ class PdfReport:
 
 
 if __name__ == "__main__" :
-    
     amount = float(input("Enter the Total bill amount: "))
     period = input("Enter the Period of the bill (eg March 2023): ")
     bill = Bill(amount, period)
 
-    
-    
 
     name1 = input("Enter name of 1st Flatmate: ")
     days_in_house1 = int(input("Enter no of days for {}: ".format(name1)))
